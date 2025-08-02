@@ -9,25 +9,45 @@ public class Book
     public decimal Price { get; set; }
     public Book(string _ISBN, string _Title, string[] _Authors, DateTime _PublicationDate, decimal _Price)
     {
-        throw new NotImplementedException();
+        this.ISBN = _ISBN;
+        this.Title = _Title;
+        this.Authors = _Authors;
+        this.PublicationDate = _PublicationDate;
+        this.Price = _Price;
     }
     public override string ToString()
     {
-        throw new NotImplementedException();
+        return $"{Title} by {string.Join(", ", Authors)} (ISBN: {ISBN}) - Published on {PublicationDate.ToShortDateString()} - Price: {Price:C}";
     }
 }
+// user-defined delegate for book operations
+public delegate string BookDelegate(Book B);
 public class BookFunctions
 {
+    private List<Book> books;
+    public BookFunctions(List<Book> books) 
+    {
+         this.books = books;
+    }
+    public void ProcessBooksDelegate(BookDelegate operation)
+    {
+        foreach (var book in books)
+        {
+            Console.WriteLine(operation.Invoke(book));
+        }
+    }
+    #region 2.a
     public static string GetTitile(Book B)
     {
-        throw new NotImplementedException();
+        return B.Title;
     }
     public static string GetAuthors(Book B)
     {
-        throw new NotImplementedException();
+        return string.Join(", ", B.Authors);
     }
     public static string GetPrice(Book B)
     {
-        throw new NotImplementedException();
+        return $"{B.Price}";
     }
+    #endregion
 }
