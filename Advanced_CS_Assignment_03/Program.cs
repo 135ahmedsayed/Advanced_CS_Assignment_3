@@ -22,13 +22,18 @@
             //bookFunctions.ProcessBooksDelegate(BookFunctions.GetAuthors);
             #endregion
             #region 2.b
+            //BookFunctions bookFunctions = new BookFunctions(books);
+            //Console.WriteLine("Prices : ");
+            //bookFunctions.ProcessBooksDelegate(BookFunctions.GetPrice);
+            //Console.WriteLine("Titles : ");
+            //bookFunctions.ProcessBooksDelegate(BookFunctions.GetTitile);
+            //Console.WriteLine("Authors : ");
+            //bookFunctions.ProcessBooksDelegate(BookFunctions.GetAuthors);
+            #endregion
+            #region 2.c
+            Console.WriteLine("GetISBNs : ");
             BookFunctions bookFunctions = new BookFunctions(books);
-            Console.WriteLine("Prices : ");
-            bookFunctions.ProcessBooksDelegate(BookFunctions.GetPrice);
-            Console.WriteLine("Titles : ");
-            bookFunctions.ProcessBooksDelegate(BookFunctions.GetTitile);
-            Console.WriteLine("Authors : ");
-            bookFunctions.ProcessBooksDelegate(BookFunctions.GetAuthors);
+            bookFunctions.ProcessBooksDelegate(delegate (Book ISBN) { return ISBN.ISBN; } );
             #endregion
             Console.ReadKey();
         }
