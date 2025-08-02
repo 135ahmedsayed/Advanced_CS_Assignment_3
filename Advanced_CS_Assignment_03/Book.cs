@@ -20,7 +20,7 @@ public class Book
         return $"{Title} by {string.Join(", ", Authors)} (ISBN: {ISBN}) - Published on {PublicationDate.ToShortDateString()} - Price: {Price:C}";
     }
 }
-// user-defined delegate for book operations
+// user-defined delegate for book operations (2.a)
 public delegate string BookDelegate(Book B);
 public class BookFunctions
 {
@@ -29,14 +29,16 @@ public class BookFunctions
     {
          this.books = books;
     }
-    public void ProcessBooksDelegate(BookDelegate operation)
+    #region 2.b
+    public void ProcessBooksDelegate<T>(Func<Book,T> func)
     {
         foreach (var book in books)
         {
-            Console.WriteLine(operation.Invoke(book));
+            Console.WriteLine(func.Invoke(book));
         }
     }
-    #region 2.a
+    #endregion
+    #region 2.a,b
     public static string GetTitile(Book B)
     {
         return B.Title;
@@ -49,5 +51,5 @@ public class BookFunctions
     {
         return $"{B.Price}";
     }
-    #endregion
+    #endregion 
 }

@@ -13,6 +13,15 @@
                 new Book("978-0-12-345678-9", "Data Structures and Algorithms", new string[] { "Bob Brown", "Charlie White" }, new DateTime(2019, 8, 10), 49.99m)
             };
             #region 2.a
+            //BookFunctions bookFunctions = new BookFunctions(books);
+            //Console.WriteLine("Prices : ");
+            //bookFunctions.ProcessBooksDelegate(BookFunctions.GetPrice);
+            //Console.WriteLine("Titles : ");
+            //bookFunctions.ProcessBooksDelegate(BookFunctions.GetTitile);
+            //Console.WriteLine("Authors : ");
+            //bookFunctions.ProcessBooksDelegate(BookFunctions.GetAuthors);
+            #endregion
+            #region 2.b
             BookFunctions bookFunctions = new BookFunctions(books);
             Console.WriteLine("Prices : ");
             bookFunctions.ProcessBooksDelegate(BookFunctions.GetPrice);
