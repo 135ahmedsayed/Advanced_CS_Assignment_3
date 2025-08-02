@@ -31,9 +31,14 @@
             //bookFunctions.ProcessBooksDelegate(BookFunctions.GetAuthors);
             #endregion
             #region 2.c
-            Console.WriteLine("GetISBNs : ");
+            //Console.WriteLine("GetISBNs : ");
+            //BookFunctions bookFunctions = new BookFunctions(books);
+            //bookFunctions.ProcessBooksDelegate(delegate (Book ISBN) { return ISBN.ISBN; } );
+            #endregion
+            #region 2.d
+            Console.WriteLine("GetPublicationDate : ");
             BookFunctions bookFunctions = new BookFunctions(books);
-            bookFunctions.ProcessBooksDelegate(delegate (Book ISBN) { return ISBN.ISBN; } );
+            bookFunctions.ProcessBooksDelegate((PublicationDate) => PublicationDate.PublicationDate);
             #endregion
             Console.ReadKey();
         }
